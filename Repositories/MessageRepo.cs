@@ -20,9 +20,9 @@ namespace Repositories
     {
       string sql = @"
         INSERT INTO messages
-            (username, body, email,phonenumber)
+            (name, body, email,phonenumber)
             VALUES
-            (@UserName, @Body, @Email, @PhoneNumber);
+            (@Name, @Body, @Email, @PhoneNumber);
             SELECT LAST_INSERT_ID();
             ";
       int id = _db.ExecuteScalar<int>(sql, MessageData);

@@ -1,0 +1,26 @@
+using System;
+using Repositories;
+using Models;
+using System.Collections.Generic;
+
+namespace Services
+{
+  public class FundraiserService
+  {
+    private readonly FundraiserRepo _fundraiserService;
+
+    public FundraiserService(FundraiserRepo FundraiserService)
+    {
+      _fundraiserService = FundraiserService;
+    }
+    internal Fundraiser Create(Fundraiser Fundraiser)
+    {
+      return _fundraiserService.Create(Fundraiser);
+    }
+
+    internal Fundraiser Get(int id)
+    {
+      return _fundraiserService.Get(id);
+    }
+  }
+}
