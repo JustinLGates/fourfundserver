@@ -10,7 +10,7 @@ using Services;
 namespace Controllers
 {
   [ApiController]
-  [Route("api/[contorller]")]
+  [Route("api/[controller]")]
   public class MessagesController : ControllerBase
   {
 
@@ -27,6 +27,19 @@ namespace Controllers
       try
       {
         return Ok(_MessageService.Create(message));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
+    [HttpGet]
+    public ActionResult<IEnumerable<Message>> Get()
+    {
+      try
+      {
+        //TODO ADD USER EMAIL/ AUTH CHECK ONLY RETURN MESSAGE TO STAFF
+        return Ok(_MessageService.Get());
       }
       catch (Exception e)
       {

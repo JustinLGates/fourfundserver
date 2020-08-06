@@ -1,6 +1,7 @@
 using System;
 using Repositories;
 using Models;
+using System.Collections.Generic;
 
 namespace Services
 {
@@ -16,5 +17,11 @@ namespace Services
     {
       return _repo.Create(message);
     }
+
+    internal IEnumerable<Message> Get()
+    {
+      return _repo.Get();
+    }
   }
+
 }

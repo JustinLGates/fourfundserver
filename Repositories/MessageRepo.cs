@@ -1,6 +1,8 @@
+using System;
 using System.Data;
 using Dapper;
 using Models;
+using System.Collections.Generic;
 
 namespace Repositories
 {
@@ -17,10 +19,10 @@ namespace Repositories
     internal Message Create(Message MessageData)
     {
       string sql = @"
-        INSERT INTO Messages
-            (name, body, email,phonenumber)
+        INSERT INTO messages
+            (username, body, email,phonenumber)
             VALUES
-            (@Name, @Body, @Email, @PhoneNumber);
+            (@UserName, @Body, @Email, @PhoneNumber);
             SELECT LAST_INSERT_ID();
             ";
       int id = _db.ExecuteScalar<int>(sql, MessageData);
@@ -28,7 +30,10 @@ namespace Repositories
       return MessageData;
     }
 
-
-
+    internal IEnumerable<Message> Get()
+    {
+      string sql = "SELECT * FROM messages";
+      return _db.Query<Message>(sql);
+    }
   }
 }

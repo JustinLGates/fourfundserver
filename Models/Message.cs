@@ -6,7 +6,7 @@ namespace Models
   public class Message
   {
     [Required]
-    public string Name { get; set; }
+    public string UserName { get; set; }
     [Required]
     public string Body { get; set; }
     [Required]
