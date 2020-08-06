@@ -1,32 +1,30 @@
 
 using System;
 using System.Security.Claims;
-using Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Models;
-
+using Services;
 
 namespace Controllers
 {
   [ApiController]
   [Route("api/[controller]")]
-  public class AdvertiserController : ControllerBase
+  public class FundraiserController : ControllerBase
   {
+    private readonly FundraiserService _FundraiserService;
 
-    private readonly AdvertiserService _AdvertiserService;
-
-    public AdvertiserController(AdvertiserService AdvertiserService)
+    public FundraiserController(FundraiserService FundraiserService)
     {
-      _AdvertiserService = AdvertiserService;
+      _FundraiserService = FundraiserService;
     }
 
     [HttpPost]
-    public ActionResult<Advertiser> Create([FromBody] Advertiser Advertiser)
+    public ActionResult<Fundraiser> Create([FromBody] Fundraiser Fundraiser)
     {
       try
       {
-        return Ok(_AdvertiserService.Create(Advertiser));
+        return Ok(_FundraiserService.Create(Fundraiser));
       }
       catch (Exception e)
       {
@@ -36,11 +34,11 @@ namespace Controllers
 
     //TODO IMPLEMENT AUTH CHECK DONT TRUST THE CLIENT
     [HttpGet("{id}")]
-    public ActionResult<Advertiser> Get(int id)
+    public ActionResult<Fundraiser> Get(int id)
     {
       try
       {
-        return Ok(_AdvertiserService.Get(id));
+        return Ok(_FundraiserService.Get(id));
       }
       catch (Exception e)
       {

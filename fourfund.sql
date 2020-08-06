@@ -15,7 +15,7 @@
     orgname VARCHAR(80) NOT NULL,
     phonenumber VARCHAR(16) ,
     email VARCHAR(100) NOT NULL,  
-     logo varchar(400),
+    logo varchar(400),
     PRIMARY KEY (id)
 );
 
