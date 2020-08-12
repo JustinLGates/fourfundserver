@@ -9,16 +9,28 @@
 --     PRIMARY KEY (id)
 -- );
 
-    CREATE TABLE useradvertiser  (
-    id int NOT NULL AUTO_INCREMENT,
-    username VARCHAR(80) NOT NULL,
-    orgname VARCHAR(80) NOT NULL,
-    phonenumber VARCHAR(16) ,
-    email VARCHAR(100) NOT NULL,  
-    logo varchar(400),
-    PRIMARY KEY (id)
-);
+--     CREATE TABLE useradvertiser  (
+--     id int NOT NULL AUTO_INCREMENT,
+--     website VARCHAR(255) ,
+--     username VARCHAR(80) NOT NULL,
+--     orgname VARCHAR(80) NOT NULL,
+--     phonenumber VARCHAR(16) ,
+--     email VARCHAR(100) NOT NULL,  
+--     logo varchar(400),
+--     PRIMARY KEY (id)
+-- );
+--     CREATE TABLE offers  (
+--     id int NOT NULL AUTO_INCREMENT,
+--     creatoremail VARCHAR(80) NOT NULL,
+--     orgname VARCHAR(80) NOT NULL,
+--     logo varchar(255),
+--     offer varchar(255),
+--     details varchar(255),
+--     experationdate varchar(255),
+--     orglocation varchar(255),
 
+--     PRIMARY KEY (id)
+-- );
 
 --     CREATE TABLE userfundraiser  (
 --     id int NOT NULL AUTO_INCREMENT,

@@ -15,9 +15,9 @@ namespace Repositories
     {
       string sql = @"
         INSERT INTO useradvertiser
-            (username, orgname, email, phonenumber,logo)
+            (username,website, orgname, email, phonenumber,logo)
             VALUES
-            (@UserName, @OrgName, @Email, @PhoneNumber,@Logo);
+            (@UserName,@Website, @OrgName, @Email, @PhoneNumber,@Logo);
             SELECT LAST_INSERT_ID();
             ";
       int id = _db.ExecuteScalar<int>(sql, AdvertiserData);
