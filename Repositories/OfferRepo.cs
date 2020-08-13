@@ -18,10 +18,10 @@ namespace fourfundserver.Repositories
     internal Offer Create(Offer OfferData)
     {
       string sql = @"
-        INSERT INTO Offers
-            (creatoremail, orgname, offer,details,experationdate,logo,orglocation)
+        INSERT INTO offers
+            (creatoremail, orgname, offer, details, experationdate, logo, orglocation, website)
             VALUES
-            (@CreatorEmail,@Orgname, @OfferBody, @Details, @ExperationDate,@LogoUrl,@Location);
+            (@CreatorEmail, @Orgname, @offer, @Details, @ExperationDate, @Logo, @OrgLocation, @Website);
             SELECT LAST_INSERT_ID();
             ";
       int id = _db.ExecuteScalar<int>(sql, OfferData);
