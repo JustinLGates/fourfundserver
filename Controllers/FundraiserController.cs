@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Models;
 using Services;
 
+
 namespace Controllers
 {
   [ApiController]
@@ -18,12 +19,14 @@ namespace Controllers
     {
       _FundraiserService = FundraiserService;
     }
-
+    [Authorize]
     [HttpPost]
     public ActionResult<Fundraiser> Create([FromBody] Fundraiser Fundraiser)
     {
       try
       {
+        string nameIdentifier = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        Fundraiser.Email = nameIdentifier;
         return Ok(_FundraiserService.Create(Fundraiser));
       }
       catch (Exception e)
@@ -32,13 +35,14 @@ namespace Controllers
       }
     }
 
-    //TODO IMPLEMENT AUTH CHECK DONT TRUST THE CLIENT
-    [HttpGet("{id}")]
+    [Authorize]
+    [HttpGet]
     public ActionResult<Fundraiser> Get(int id)
     {
       try
       {
-        return Ok(_FundraiserService.Get(id));
+        string nameIdentifier = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        return Ok(_FundraiserService.Get(nameIdentifier));
       }
       catch (Exception e)
       {

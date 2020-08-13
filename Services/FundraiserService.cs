@@ -18,9 +18,9 @@ namespace Services
       return _fundraiserService.Create(Fundraiser);
     }
 
-    internal Fundraiser Get(int id)
+    internal Fundraiser Get(string nameIdentifier)
     {
-      return _fundraiserService.Get(id);
+      return _fundraiserService.Get(nameIdentifier);
     }
   }
 }

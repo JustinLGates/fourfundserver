@@ -25,10 +25,10 @@ namespace Repositories
       return FundraiserData;
     }
 
-    internal Fundraiser Get(int id)
+    internal Fundraiser Get(string nameIdentifier)
     {
-      string sql = "SELECT * FROM userFundraiser WHERE id = @id";
-      return _db.QueryFirstOrDefault<Fundraiser>(sql, new { id });
+      string sql = "SELECT * FROM userFundraiser WHERE id = @nameIdentifier";
+      return _db.QueryFirstOrDefault<Fundraiser>(sql, new { nameIdentifier });
     }
   }
 }
