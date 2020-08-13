@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using fourfundserver.Repositories;
+using fourfundserver.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -68,7 +70,8 @@ namespace Keepr
       services.AddTransient<AdvertiserRepo>();
       services.AddTransient<FundraiserService>();
       services.AddTransient<FundraiserRepo>();
-
+      services.AddTransient<OfferService>();
+      services.AddTransient<OfferRepo>();
 
     }
 
