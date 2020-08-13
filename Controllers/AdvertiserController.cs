@@ -22,8 +22,11 @@ namespace Controllers
     }
 
     [HttpPost]
+[Authorize]
     public ActionResult<Advertiser> Create([FromBody] Advertiser Advertiser)
     {
+          string nameIdentifier = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+          Advertiser.Email = nameIdentifier;
       try
       {
         return Ok(_AdvertiserService.Create(Advertiser));
@@ -34,13 +37,14 @@ namespace Controllers
       }
     }
 
-    //TODO IMPLEMENT AUTH CHECK DONT TRUST THE CLIENT
-    [HttpGet("{id}")]
+    [Authorize]
+    [HttpGet]
     public ActionResult<Advertiser> Get(int id)
     {
       try
       {
-        return Ok(_AdvertiserService.Get(id));
+       string nameIdentifier = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        return Ok(_AdvertiserService.Get(nameIdentifier));
       }
       catch (Exception e)
       {

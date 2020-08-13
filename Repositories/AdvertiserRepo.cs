@@ -25,10 +25,10 @@ namespace Repositories
       return AdvertiserData;
     }
 
-    internal Advertiser Get(int id)
+    internal Advertiser Get(string userIdentifier)
     {
-      string sql = "SELECT * FROM useradvertiser WHERE id = @id";
-      return _db.QueryFirstOrDefault<Advertiser>(sql, new { id });
+      string sql = "SELECT * FROM useradvertiser WHERE email = @userIdentifier";
+      return _db.QueryFirstOrDefault<Advertiser>(sql, new { userIdentifier });
     }
   }
 }

@@ -16,9 +16,9 @@ namespace Services
       return _advertiserService.Create(advertiser);
     }
 
-    internal Advertiser Get(int id)
+    internal Advertiser Get(string userIdentifier)
     {
-      return _advertiserService.Get(id);
+      return _advertiserService.Get(userIdentifier);
     }
   }
 }
