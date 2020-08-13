@@ -17,9 +17,9 @@ namespace fourfundserver.Services
       return _repo.Create(offer);
     }
 
-    internal IEnumerable<Offer> Get()
+    internal IEnumerable<Offer> Get(string email)
     {
-      return _repo.Get();
+      return _repo.Get(email);
     }
   }
 

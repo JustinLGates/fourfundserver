@@ -1,15 +1,15 @@
 
 -- DROP TABLE messages;
 
-    CREATE TABLE messages  (
+--     CREATE TABLE messages  (
     
-    id int NOT NULL AUTO_INCREMENT,
-    name  VARCHAR(255),
-    body VARCHAR(1200) NOT NULL,
-    phonenumber VARCHAR(50) ,
-    email VARCHAR(255),  
-    PRIMARY KEY (id)
-);
+--     id int NOT NULL AUTO_INCREMENT,
+--     name  VARCHAR(255),
+--     body VARCHAR(1200) NOT NULL,
+--     phonenumber VARCHAR(50) ,
+--     email VARCHAR(255),  
+--     PRIMARY KEY (id)
+-- );
 
 --     CREATE TABLE useradvertiser  (
 --     id int NOT NULL AUTO_INCREMENT,
@@ -21,6 +21,11 @@
 --     logo varchar(400),
 --     PRIMARY KEY (id)
 -- );
+
+
+
+-- DROP TABLE offers;
+
 --     CREATE TABLE offers  (
 --     id int NOT NULL AUTO_INCREMENT,
 --     creatoremail VARCHAR(80) NOT NULL,
@@ -30,9 +35,11 @@
 --     details varchar(255),
 --     experationdate varchar(255),
 --     orglocation varchar(255),
-
+--     website varchar(255),
 --     PRIMARY KEY (id)
 -- );
+
+
 
 --     CREATE TABLE userfundraiser  (
 --     id int NOT NULL AUTO_INCREMENT,

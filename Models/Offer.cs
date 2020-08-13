@@ -10,6 +10,7 @@ namespace fourfundserver.Models
     public string ExperationDate { get; set; }
     public string LogoUrl { get; set; }
     public string Location { get; set; }
+    public string Website { get; set; }
 
   }
 

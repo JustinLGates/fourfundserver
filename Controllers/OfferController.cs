@@ -40,8 +40,10 @@ namespace Controllers
     {
       try
       {
+
+
         //TODO ADD USER EMAIL/ AUTH CHECK ONLY RETURNOffer TO STAFF
-        return Ok(_OfferService.Get());
+        return Ok(_OfferService.Get("testemail..."));
       }
       catch (Exception e)
       {

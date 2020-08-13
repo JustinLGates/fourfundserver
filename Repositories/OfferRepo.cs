@@ -29,10 +29,10 @@ namespace fourfundserver.Repositories
       return OfferData;
     }
 
-    internal IEnumerable<Offer> Get()
+    internal IEnumerable<Offer> Get(string Email)
     {
-      string sql = "SELECT * FROM Offers";
-      return _db.Query<Offer>(sql);
+      string sql = "SELECT * FROM offers WHERE creatoremail = @Email";
+      return _db.Query<Offer>(sql, new { Email });
     }
   }
 }
