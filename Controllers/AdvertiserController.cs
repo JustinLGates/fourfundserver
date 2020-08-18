@@ -22,14 +22,21 @@ namespace Controllers
     }
 
     [HttpPost]
-[Authorize]
+    [Authorize]
     public ActionResult<Advertiser> Create([FromBody] Advertiser Advertiser)
     {
-          string nameIdentifier = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-          Advertiser.Email = nameIdentifier;
       try
       {
-        return Ok(_AdvertiserService.Create(Advertiser));
+        string nameIdentifier = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        if (nameIdentifier != null)
+        {
+          Advertiser.Email = nameIdentifier;
+          return Ok(_AdvertiserService.Create(Advertiser));
+        }
+        else
+        {
+          throw new UnauthorizedAccessException("Unauthorized");
+        }
       }
       catch (Exception e)
       {
@@ -39,12 +46,19 @@ namespace Controllers
 
     [Authorize]
     [HttpGet]
-    public ActionResult<Advertiser> Get(int id)
+    public ActionResult<Advertiser> Get()
     {
       try
       {
-       string nameIdentifier = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-        return Ok(_AdvertiserService.Get(nameIdentifier));
+        string nameIdentifier = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        if (nameIdentifier != null)
+        {
+          return Ok(_AdvertiserService.Get(nameIdentifier));
+        }
+        else
+        {
+          throw new UnauthorizedAccessException("Unauthorized");
+        }
       }
       catch (Exception e)
       {

@@ -20,7 +20,7 @@ namespace Controllers
     {
       _OfferService = OfferService;
     }
-
+    [Authorize]
     [HttpPost]
     public ActionResult<Offer> Create([FromBody] Offer offer)
     {

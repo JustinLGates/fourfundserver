@@ -10,15 +10,15 @@
 --     email VARCHAR(255),  
 --     PRIMARY KEY (id)
 -- );
-
 --     CREATE TABLE useradvertiser  (
 --     id int NOT NULL AUTO_INCREMENT,
---     website VARCHAR(255) ,
 --     username VARCHAR(80) NOT NULL,
 --     orgname VARCHAR(80) NOT NULL,
---     phonenumber VARCHAR(16) ,
---     email VARCHAR(100) NOT NULL,  
 --     logo varchar(400),
+--     email VARCHAR(100) NOT NULL,  
+--     website VARCHAR(255) ,
+--     phonenumber VARCHAR(16) ,
+-- NOTE add location to this table and to the repo..
 --     PRIMARY KEY (id)
 -- );
 

@@ -49,7 +49,7 @@ namespace Keepr
               {
                 builder
                           .WithOrigins(new string[]{
-                            "http://localhost:3001d",
+                            "http://localhost:3001",
                             "http://localhost:3000"
                       })
                           .AllowAnyMethod()

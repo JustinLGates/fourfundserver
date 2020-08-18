@@ -19,7 +19,7 @@ namespace Controllers
     {
       _MessageService = messageService;
     }
-
+    // NOTE AVALABLE TO ANY ONE THAT WANTS MORE INFORMATION
     [HttpPost]
     public ActionResult<Message> Create([FromBody] Message message)
     {
@@ -32,13 +32,23 @@ namespace Controllers
         return BadRequest(e.Message);
       }
     }
+
+    //  NOTE FOR ADMIN USE ONLY NO PUBLIC ACCESS ALLOWED
+    [Authorize]
     [HttpGet]
     public ActionResult<IEnumerable<Message>> Get()
     {
       try
       {
-        //TODO ADD USER EMAIL/ AUTH CHECK ONLY RETURN MESSAGE TO STAFF
-        return Ok(_MessageService.Get());
+        var nameIdentifier = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        if (nameIdentifier != null)
+        {
+          return Ok(_MessageService.Get(nameIdentifier));
+        }
+        else
+        {
+          throw new UnauthorizedAccessException("Unauthorized");
+        }
       }
       catch (Exception e)
       {

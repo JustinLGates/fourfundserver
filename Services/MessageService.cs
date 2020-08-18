@@ -18,8 +18,9 @@ namespace Services
       return _repo.Create(message);
     }
 
-    internal IEnumerable<Message> Get()
+    internal IEnumerable<Message> Get(string nameIdentifier)
     {
+      //TODO ADD CONDITION FOR NAME IDENTIFIER FOR JUST ADMIN ACCOUNTS
       return _repo.Get();
     }
   }
