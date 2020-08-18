@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Data;
 using Dapper;
@@ -29,7 +30,13 @@ namespace fourfundserver.Repositories
       return OfferData;
     }
 
-    internal IEnumerable<Offer> Get(string Email)
+    internal IEnumerable<Offer> GetPublic()
+    {
+      string sql = "SELECT * FROM offers";
+      return _db.Query<Offer>(sql);
+    }
+
+    internal IEnumerable<Offer> GetByAdvertiser(string Email)
     {
       string sql = "SELECT * FROM offers WHERE creatoremail = @Email";
       return _db.Query<Offer>(sql, new { Email });

@@ -12,9 +12,7 @@ namespace Controllers
   [Route("api/[controller]")]
   public class MessagesController : ControllerBase
   {
-
     private readonly MessageService _MessageService;
-
     public MessagesController(MessageService messageService)
     {
       _MessageService = messageService;

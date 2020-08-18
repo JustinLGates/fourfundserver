@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using fourfundserver.Models;
 using fourfundserver.Repositories;
@@ -17,9 +18,15 @@ namespace fourfundserver.Services
       return _repo.Create(offer);
     }
 
-    internal IEnumerable<Offer> Get(string email)
+    internal IEnumerable<Offer> GetByAdvertiser(string email)
     {
-      return _repo.Get(email);
+      return _repo.GetByAdvertiser(email);
+    }
+
+    internal IEnumerable<Offer> GetPublic()
+    {
+      return _repo.GetPublic();
+
     }
   }
 

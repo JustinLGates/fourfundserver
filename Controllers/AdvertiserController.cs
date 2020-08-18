@@ -1,4 +1,3 @@
-
 using System;
 using System.Security.Claims;
 using Services;
@@ -6,21 +5,17 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 
-
 namespace Controllers
 {
   [ApiController]
   [Route("api/[controller]")]
   public class AdvertiserController : ControllerBase
   {
-
     private readonly AdvertiserService _AdvertiserService;
-
     public AdvertiserController(AdvertiserService AdvertiserService)
     {
       _AdvertiserService = AdvertiserService;
     }
-
     [HttpPost]
     [Authorize]
     public ActionResult<Advertiser> Create([FromBody] Advertiser Advertiser)
@@ -43,7 +38,6 @@ namespace Controllers
         return BadRequest(e.Message);
       }
     }
-
     [Authorize]
     [HttpGet]
     public ActionResult<Advertiser> Get()

@@ -26,8 +26,16 @@ namespace Controllers
       try
       {
         string nameIdentifier = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-        Fundraiser.Email = nameIdentifier;
-        return Ok(_FundraiserService.Create(Fundraiser));
+        if (nameIdentifier != null)
+        {
+
+          Fundraiser.Email = nameIdentifier;
+          return Ok(_FundraiserService.Create(Fundraiser));
+        }
+        else
+        {
+          throw new UnauthorizedAccessException("Unothorized");
+        }
       }
       catch (Exception e)
       {
@@ -37,12 +45,19 @@ namespace Controllers
 
     [Authorize]
     [HttpGet]
-    public ActionResult<Fundraiser> Get(int id)
+    public ActionResult<Fundraiser> Get()
     {
       try
       {
         string nameIdentifier = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-        return Ok(_FundraiserService.Get(nameIdentifier));
+        if (nameIdentifier != null)
+        {
+          return Ok(_FundraiserService.Get(nameIdentifier));
+        }
+        else
+        {
+          throw new UnauthorizedAccessException("Unauthorized");
+        }
       }
       catch (Exception e)
       {
